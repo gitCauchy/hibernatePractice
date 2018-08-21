@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0 //EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 配置实体类和表相对应 -->
+	<!-- name 为实体类的全路径  table 为表的名字 -->
+	<class name = "com.cauchy.entity.User" table = "t_user">
+		<id name = "uid" column = "uid">
+			<!-- 设置数据库主键增长策略 
+			native 生成id值为主键自动增长-->
+			<generator class="native"></generator>
+		</id>
+		<!-- 适配其他属性和字段相应 -->
+		<!-- name:实体类的属性名称  column:生成表的字段名称 -->
+		<property name="username" column = "username"></property>
+		<property name="password" column = "password"></property>
+		<property name="address" column = "address"></property>
+	</class>
+</hibernate-mapping>
