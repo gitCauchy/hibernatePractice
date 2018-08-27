@@ -18,6 +18,8 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- 配置数据库方言 -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<mapping resource = "com/cauchy/entity/hbm.xml"/>
+		<!-- <mapping resource = "com/cauchy/entity/hbm.xml"/> -->
+		<mapping resource = "com/cauchy/entity/hbm_linkman.xml"/>
+		<mapping resource = "com/cauchy/entity/hbm_custom.xml"/> 
 	</session-factory>
 </hibernate-configuration>
