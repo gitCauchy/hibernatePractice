@@ -54,5 +54,49 @@ public class HibernateManytoMany {
 			session.close();
 			sessionFactory.close();
 		}
+		
+	}
+	
+	@Test
+	public void testTable() {
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction tx = null;
+		try {
+			sessionFactory = HibernateUtils.getSessionFactory();
+			session = sessionFactory.openSession();
+			tx = session.beginTransaction();
+			User lucy = session.get(User.class, 2);
+			Role cooker = session.get(Role.class, 1);
+			lucy.getSetRole().add(cooker);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			session.close();
+			sessionFactory.close();
+		}
+	}
+	@Test
+	public void testTable2() {
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction tx = null;
+		try {
+			sessionFactory = HibernateUtils.getSessionFactory();
+			session = sessionFactory.openSession();
+			tx = session.beginTransaction();
+			User lucy = session.get(User.class, 1);
+			Role cooker = session.get(Role.class, 1);
+			lucy.getSetRole().remove(cooker);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			session.close();
+			sessionFactory.close();
+		}
 	}
 }
