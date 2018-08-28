@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0 //EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name = "com.cauchy.manytomanyentity.Role" table = "manytomany_role">
+			<id name = "role_id" column = "role_id">
+				<generator class="native"></generator>
+			</id>
+			<property name="role_name" column = "role_name"></property>
+			<property name="role_memo" column = "role_memo"></property>
+			<!-- 采用第三张表维护关系 -->
+			<set name = "setUser" table = "user_role" >
+				<!-- 角色在第三张表的外键 -->
+				<key column = "roleid"></key>
+				<!-- class 角色实体类全路径，column：角色在第三张表的外键 -->
+				<many-to-many class="com.cauchy.manytomanyentity.User" column = "userid"></many-to-many>
+			</set>
+		</class>
+	</hibernate-mapping>

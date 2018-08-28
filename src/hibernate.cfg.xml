@@ -21,5 +21,7 @@
 		<!-- <mapping resource = "com/cauchy/entity/hbm.xml"/> -->
 		<mapping resource = "com/cauchy/entity/hbm_linkman.xml"/>
 		<mapping resource = "com/cauchy/entity/hbm_custom.xml"/> 
+		<mapping resource = "com/cauchy/manytomanyentity/User.hbm.xml"/>
+		<mapping resource = "com/cauchy/manytomanyentity/Role.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

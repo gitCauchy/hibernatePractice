@@ -18,7 +18,8 @@
 			<property name="custPhone" column = "custPhone"></property>
 			<property name="custMobile" column = "custMobile"></property>
 			<!-- 使用set标签来表示所有联系人的set集合 -->
-			<set name = "setLinkMan">
+			<!-- 级联删除要添加配置属性cascade = "save-update,delete" -->
+			<set name = "setLinkMan" cascade="save-update,delete">
 				<!-- hibernate机制是双向维护的，在一的一方和多的一方都需要配置外键 -->
 				<key column = "clid"></key>
 				<!-- 在class 中要写联系人实体类的全路径 -->

@@ -48,4 +48,24 @@ public class HibernateOneToMany {
 			sessionFactory.close();
 		}
 	}
+	@Test
+	public void testDel() {
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction tx = null;
+		try {
+			sessionFactory = HibernateUtils.getSessionFactory();
+			session = sessionFactory.openSession();
+			tx = session.beginTransaction();
+			Customer customer = session.get(Customer.class, 1);
+			session.delete(customer);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			session.close();
+			sessionFactory.close();
+		}
+	}
 }
